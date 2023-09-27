@@ -1,0 +1,47 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java
+{
+    "name": "qmk_firmware",
+    "dockerFile": "Dockerfile",
+    "build": {
+        "args": {
+            "TAG": "0.21.7"
+        }
+    },
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "java -version",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "EditorConfig.EditorConfig",
+                "xaver.clang-format",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "bierner.github-markdown-preview",
+                "donjayamanne.git-extension-pack",
+                "ms-vscode.makefile-tools",
+                "ms-vscode.cpptools"
+            ]
+        },
+        "settings": {
+            "terminal.integrated.profiles.linux": {
+                "ash": {
+                    "path": "bash",
+                    "args": [
+                        "-l"
+                    ]
+                }
+            },
+            "terminal.integrated.defaultProfile.linux": "bash"
+        }
+    },
+    "workspaceFolder": "/qmk_firmware",
+    "mounts": [
+        "source=${localWorkspaceFolder}/keyboards/sofle/keymaps/nimatt,target=/qmk_firmware/keyboards/sofle/keymaps/nimatt,type=bind",
+        "source=${localWorkspaceFolder}/out,target=/qmk_firmware/out,type=bind"
+    ],
+    "remoteUser": "vscode"
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root"
+}
