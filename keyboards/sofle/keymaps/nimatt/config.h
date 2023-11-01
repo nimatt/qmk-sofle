@@ -49,8 +49,11 @@ for more options. */
 #    endif
 #endif
 
-#define QUICK_TAP_TERM 0
 #ifdef TAPPING_TERM
     #undef TAPPING_TERM
-    #define TAPPING_TERM 230
+    #define TAPPING_TERM 220
 #endif
+#define QUICK_TAP_TERM TAPPING_TERM
+
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
